@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 import Header from '../components/common/Header';
 import Button from '../components/common/Button';
-import { Image } from '../styles/mixins';
 
 const NotFoundPage = ({ history }) => {
   return (

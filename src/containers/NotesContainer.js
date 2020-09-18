@@ -10,10 +10,10 @@ const NotesContainer = ({ notes, history }) => {
   return (
     <>
       <Helmet>
-        <title>Note | {notes && '' + notes.length}</title>
+        <title>Apolloskine</title>
       </Helmet>
       <Button text="Add" callback={() => history.push('/add')} large />
-      <Header title={'Notes'} />
+      <Header title={'Apolloskine'} />
       {notes && notes.map((note) => <Note key={note.id} {...note} />)}
     </>
   );
