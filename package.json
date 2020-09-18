@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev --polyfill-node --reload",
-    "build": "snowpack build",
+    "build": "snowpack build --polyfill-node",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx}\""
@@ -13,7 +13,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "github-markdown-css": "^3.0.1",
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
     "prismjs": "^1.17.1",
