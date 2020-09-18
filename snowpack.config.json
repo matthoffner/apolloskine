@@ -1,4 +1,11 @@
 {
   "extends": "@snowpack/app-scripts-react",
-  "plugins": []
+  "plugins": [
+    [
+      "@snowpack/plugin-optimize",
+      {
+        "preloadModules": true
+      }
+    ]
+  ]
 }
