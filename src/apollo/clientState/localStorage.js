@@ -14,7 +14,6 @@ export const saveNotes = (cache) => {
 
 export const restoreNotes = () => {
   const notes = localStorage.getItem('notes');
-  console.log(notes);
 
   if (notes) {
     try {
