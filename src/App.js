@@ -1,17 +1,11 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import GlobalStyle from './styles/reset';
-const NotesPageComponent = lazy(() => import('./pages/NotesPage'));
+import NotesPage from './pages/NotesPage';
 const NotePageComponent = lazy(() => import('./pages/NotePage'));
 const AddPageComponent = lazy(() => import('./pages/AddPage'));
 const EditPageComponent = lazy(() => import('./pages/EditPage'));
 const NotFoundPageComponent = lazy(() => import('./pages/NotFoundPage'));
-
-const NotesPage = () => (
-  <Suspense fallback={<div>loading</div>}>
-    <NotesPageComponent />
-  </Suspense>
-);
 
 const NotePage = () => (
   <Suspense fallback={<div>loading</div>}>
