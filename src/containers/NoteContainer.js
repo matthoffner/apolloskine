@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import { useMutation } from '@apollo/client';
 import { withRouter } from 'react-router-dom';
-import { faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 
 import { REMOVE_NOTE } from '../apollo/queries';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -30,10 +29,14 @@ const NotesContainer = ({ note, history }) => {
 
   return (
     <>
-      <Button callback={() => history.push('/')} options={{ left: true }} />
+      <Button
+        text="Back"
+        callback={() => history.push('/')}
+        options={{ left: true }}
+      />
       <Button
         callback={() => downloadFile(note.title, note.content)}
-        icon={faSave}
+        text="Save"
         sticky
         options={{ show: true }}
       />
@@ -41,7 +44,7 @@ const NotesContainer = ({ note, history }) => {
         return (
           <Button
             callback={() => remove(removeNote, id)}
-            icon={faTrash}
+            text="Delete"
             options={{ red: true, left: false }}
           />
         );
