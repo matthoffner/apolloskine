@@ -828,7 +828,7 @@ export default styled.div`
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: #f6f8fa;
+    background-color: #000000;
     border-radius: 3px;
   }
 

@@ -11,16 +11,15 @@ import codeHighlight from '../utils/prism';
 import Button from '../components/common/Button';
 
 const NotesContainer = ({ note, history }) => {
-  const [removeNote] = useMutation(REMOVE_NOTE);
-
   useEffect(() => {
     codeHighlight();
   }, []);
 
   const remove = useCallback(
-    async (remove) => {
+    async (remove, id) => {
       if (window.confirm('Are you sure to delete it?')) {
         await remove();
+        useMutation(REMOVE_NOTE, { variables: { id } });
         history.push('/');
       }
     },
@@ -41,7 +40,7 @@ const NotesContainer = ({ note, history }) => {
       {(removeNote) => {
         return (
           <Button
-            callback={() => remove(removeNote)}
+            callback={() => remove(removeNote, id)}
             icon={faTrash}
             options={{ red: true, left: false }}
           />
