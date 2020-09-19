@@ -51,7 +51,7 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
     } catch (e) {
       console.error(e);
     }
-  }, [id, titleVal, contentVal, submit, history]);
+  }, [id, titleVal, contentVal, history]);
 
   const preventLeave = useCallback(() => {
     if (window.confirm('Are you sure to leave?')) {
