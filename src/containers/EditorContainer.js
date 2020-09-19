@@ -22,7 +22,7 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
       title: titleVal,
     },
   });
-  const [submit] = useMutation(EDIT_NOTE, {
+  const [editNote] = useMutation(EDIT_NOTE, {
     variables: { ...id, title: titleVal, content: contentVal },
   });
 
@@ -44,7 +44,7 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
       if (!id) {
         createNote();
       } else {
-        submit();
+        editNote();
       }
 
       history.push(id ? `/note/${Object.values(id)[0]}` : '/');
