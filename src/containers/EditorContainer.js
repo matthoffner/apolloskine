@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { withRouter, Prompt } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { useMutation } from '@apollo/client';
-import { EDIT_NOTE } from '../apollo/queries';
+import { ADD_NOTE, EDIT_NOTE } from '../apollo/queries';
 import useFocus from '../hooks/useFocus';
 import NoteEditor from '../components/NoteEditor';
 import usePreventLeave from '../hooks/usePreventLeave';
@@ -16,6 +16,12 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
   const [enablePrevent, disablePrevent] = usePreventLeave();
   const [inputRef, setInputFocus] = useFocus();
 
+  const [createNote] = useMutation(ADD_NOTE, {
+    variables: {
+      content: contentVal,
+      title: titleVal,
+    },
+  });
   const [submit] = useMutation(EDIT_NOTE, {
     variables: { ...id, title: titleVal, content: contentVal },
   });
@@ -35,7 +41,12 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
 
     try {
       await setPrevent(false);
-      submit();
+      if (!id) {
+        createNote();
+      } else {
+        submit();
+      }
+
       history.push(id ? `/note/${Object.values(id)[0]}` : '/');
     } catch (e) {
       console.error(e);
