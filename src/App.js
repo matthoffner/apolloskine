@@ -8,22 +8,22 @@ const EditPageComponent = lazy(() => import('./pages/EditPage'));
 const NotFoundPageComponent = lazy(() => import('./pages/NotFoundPage'));
 
 const NotePage = () => (
-  <Suspense fallback={<div>loading</div>}>
+  <Suspense fallback={<GlobalStyle />}>
     <NotePageComponent />
   </Suspense>
 );
 const AddPage = () => (
-  <Suspense fallback={<div>loading</div>}>
+  <Suspense fallback={<GlobalStyle />}>
     <AddPageComponent />
   </Suspense>
 );
 const EditPage = () => (
-  <Suspense fallback={<div>loading</div>}>
+  <Suspense fallback={<GlobalStyle />}>
     <EditPageComponent />
   </Suspense>
 );
 const NotFoundPage = () => (
-  <Suspense fallback={<div>loading</div>}>
+  <Suspense fallback={<GlobalStyle />}>
     <NotFoundPageComponent />
   </Suspense>
 );

@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export default styled.div`
+  .markdown-body {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    color: white !important;
+  }
   .markdown-body .octicon {
     display: inline-block;
     fill: currentColor;

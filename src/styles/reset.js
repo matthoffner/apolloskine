@@ -7,10 +7,15 @@ export default createGlobalStyle`
     #root {
         padding: 20px;
     }
+    html {
+        background-color: green;
+        background: url(https://i.stack.imgur.com/yJedC.jpg)
+    }
     body {
-        box-shadow: 10px 20px 20px #999;
+        box-shadow: 10px 20px 20px #333;
         font-family: 'Roboto', sans-serif;
-        
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
         box-sizing: border-box;
         color: ${(props) => props.theme.black}
         @media(max-width: ${(props) => props.theme.breakpoints.medium}) {
@@ -27,6 +32,7 @@ export default createGlobalStyle`
 
     input,
     textarea {
+        color: white;
         appearance: none;
         border: none;
         background-color: transparent;
