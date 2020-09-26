@@ -6,6 +6,7 @@ const NotePageComponent = lazy(() => import('./pages/NotePage'));
 const AddPageComponent = lazy(() => import('./pages/AddPage'));
 const EditPageComponent = lazy(() => import('./pages/EditPage'));
 const NotFoundPageComponent = lazy(() => import('./pages/NotFoundPage'));
+const SharePageComponent = lazy(() => import('./pages/SharePage'));
 
 const NotePage = () => (
   <Suspense fallback={<GlobalStyle />}>
@@ -27,6 +28,11 @@ const NotFoundPage = () => (
     <NotFoundPageComponent />
   </Suspense>
 );
+const SharePage = () => (
+  <Suspense fallback={<GlobalStyle />}>
+    <SharePageComponent />
+  </Suspense>
+);
 
 const App = () => {
   return (
@@ -42,6 +48,15 @@ const App = () => {
         <Route
           path="/edit/:id"
           render={({ match }) => <EditPage id={match.params.id} />}
+        />
+        <Route
+          path="/share/:title/:content"
+          render={({ match }) => (
+            <SharePage
+              content={match.params.content}
+              title={match.params.title}
+            />
+          )}
         />
         <Route component={NotFoundPage} />
       </Switch>

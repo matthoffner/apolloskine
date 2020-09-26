@@ -18,7 +18,6 @@ export const buttons = css`
   font-size: 18px;
   color: ${(props) => props.theme.gray};
   cursor: pointer;
-  position: absolute;
   border-radius: 3px;
   padding: 5px 10px;
 

@@ -19,12 +19,12 @@ const Button = ({
   if (sticky)
     return (
       <StickyButton onClick={callback} {...options} transparent>
-        <button>{text}</button>
+        {text}
       </StickyButton>
     );
   return (
     <GrayButton onClick={callback} {...options}>
-      <button>{text}</button>
+      {text}
     </GrayButton>
   );
 };

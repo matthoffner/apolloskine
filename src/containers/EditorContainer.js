@@ -7,6 +7,7 @@ import useFocus from '../hooks/useFocus';
 import NoteEditor from '../components/NoteEditor';
 import usePreventLeave from '../hooks/usePreventLeave';
 import MarkdownEditor from '../components/MarkdownEditor';
+import base64url from 'base64-url';
 
 const EditorContainer = ({ id, title = '', content = '', history }) => {
   const [titleVal, setTitleVal] = useState(title);
@@ -32,6 +33,14 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
       setContentVal(content ? content : '');
     }
   }, [title, content, setTitleVal, setContentVal]);
+
+  const toggleShareView = () => {
+    const shareablelink = `/share/${base64url.encode(
+      contentVal,
+    )}}/${base64url.encode(titleVal)}`;
+    console.log(shareablelink);
+    window.alert(shareablelink);
+  };
 
   const submitNote = useCallback(async () => {
     if (titleVal === '' || contentVal === '') {
@@ -88,6 +97,7 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
           editView,
           resetVals,
           toggleEditview,
+          toggleShareView,
         }}
       />
       <MarkdownEditor

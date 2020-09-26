@@ -30,6 +30,7 @@ export const LargeButton = styled.div`
   font-size: 25px;
   top: 85px;
   right: 10px;
+  position: absolute;
 
   &:hover {
     background-color: ${({ green, theme }) => {
