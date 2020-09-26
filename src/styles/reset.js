@@ -8,8 +8,7 @@ export default createGlobalStyle`
         padding: 20px;
     }
     html {
-        background-color: green;
-        background: url(https://i.stack.imgur.com/yJedC.jpg)
+        background: url(https://i.stack.imgur.com/yJedC.jpg);
     }
     body {
         box-shadow: 10px 20px 20px #333;
@@ -17,7 +16,7 @@ export default createGlobalStyle`
         background-color: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(10px);
         box-sizing: border-box;
-        color: ${(props) => props.theme.black}
+        color: ${(props) => props.theme.white}
         @media(max-width: ${(props) => props.theme.breakpoints.medium}) {
             margin: 70px 20px;
             margin-left: 0px;

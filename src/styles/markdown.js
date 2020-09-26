@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
   .markdown-body {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
     color: white !important;
   }
