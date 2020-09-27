@@ -12,6 +12,7 @@ import base64url from 'base64-url';
 const EditorContainer = ({ id, title = '', content = '', history }) => {
   const [titleVal, setTitleVal] = useState(title);
   const [contentVal, setContentVal] = useState(content);
+  const [shouldPrevent, setPrevent] = useState(true);
   const [editView, toggleEditview] = useState(true);
   const [enablePrevent, disablePrevent] = usePreventLeave();
   const [inputRef, setInputFocus] = useFocus();
@@ -37,7 +38,7 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
     const shareablelink = `/share/${base64url.encode(
       titleVal,
     )}}/${base64url.encode(contentVal)}`;
-    window.location = shareablelink;
+    history.push(shareablelink);
   };
 
   const submitNote = useCallback(async () => {
