@@ -13,7 +13,6 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
   const [titleVal, setTitleVal] = useState(title);
   const [contentVal, setContentVal] = useState(content);
   const [editView, toggleEditview] = useState(true);
-  const [shouldPrevent, setPrevent] = useState(true);
   const [enablePrevent, disablePrevent] = usePreventLeave();
   const [inputRef, setInputFocus] = useFocus();
 
@@ -36,10 +35,9 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
 
   const toggleShareView = () => {
     const shareablelink = `/share/${base64url.encode(
-      contentVal,
-    )}}/${base64url.encode(titleVal)}`;
-    console.log(shareablelink);
-    window.alert(shareablelink);
+      titleVal,
+    )}}/${base64url.encode(contentVal)}`;
+    window.location = shareablelink;
   };
 
   const submitNote = useCallback(async () => {
@@ -62,13 +60,6 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
     }
   }, [id, titleVal, contentVal, history]);
 
-  const preventLeave = useCallback(() => {
-    if (window.confirm('Are you sure to leave?')) {
-      return true;
-    }
-    return false;
-  }, []);
-
   const onEnter = useCallback(
     (e) => {
       if (e.key === 'Enter') {
@@ -90,7 +81,6 @@ const EditorContainer = ({ id, title = '', content = '', history }) => {
       <Helmet>
         <title>{id ? 'Edit Note' : 'New Note'}</title>
       </Helmet>
-      <Prompt when={shouldPrevent} message={preventLeave} />
       <NoteEditor
         {...{
           id,

@@ -40,24 +40,10 @@ const App = () => {
       <GlobalStyle />
       <Switch>
         <Route exact path="/" component={NotesPage} />
-        <Route
-          path="/note/:id"
-          render={({ match }) => <NotePage id={match.params.id} />}
-        />
+        <Route path="/note/:id" render={() => <NotePage />} />
         <Route path="/add" component={AddPage} />
-        <Route
-          path="/edit/:id"
-          render={({ match }) => <EditPage id={match.params.id} />}
-        />
-        <Route
-          path="/share/:title/:content"
-          render={({ match }) => (
-            <SharePage
-              content={match.params.content}
-              title={match.params.title}
-            />
-          )}
-        />
+        <Route path="/edit/:id" render={() => <EditPage />} />
+        <Route path="/share/:title/:content" render={() => <SharePage />} />
         <Route component={NotFoundPage} />
       </Switch>
     </>

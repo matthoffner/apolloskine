@@ -3,13 +3,16 @@ import { withRouter } from 'react-router-dom';
 import NoteContainer from '../containers/NoteContainer';
 import base64url from 'base64-url';
 
-const SharePage = ({ match: { params } }) => {
+const SharePage = ({
+  match: {
+    params: { title, content },
+  },
+}) => {
   const [data, setData] = useState({});
   useEffect(() => {
-    console.log(base64url.decode(params.title));
     setData({
-      title: base64url.decode(params.title),
-      content: base64url.decode(params.content),
+      title: base64url.decode(title),
+      content: base64url.decode(content),
     });
   }, []);
 

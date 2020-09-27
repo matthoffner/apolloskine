@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { grayBottomLine, grayLeftLine, transition } from './mixins';
 
 export const Title = styled.h1`
-  font-size: 36px;
+  font-size: 24px;
   margin-bottom: 50px;
   ${grayBottomLine}
 `;

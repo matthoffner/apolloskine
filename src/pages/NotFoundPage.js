@@ -11,7 +11,11 @@ const NotFoundPage = ({ history }) => {
       <Helmet>
         <title>Not Found</title>
       </Helmet>
-      <Button callback={() => history.push('/')} options={{ left: true }} />
+      <Button
+        text="back"
+        callback={() => history.push('/')}
+        options={{ left: true }}
+      />
       <Header title={'Not Found - 404'} />
     </>
   );
