@@ -8,7 +8,7 @@ export default createGlobalStyle`
         padding: 20px;
     }
     html {
-        background: url(https://i.stack.imgur.com/yJedC.jpg);
+        background: url(${(props) => props.theme.background});
     }
     body {
         box-shadow: 10px 20px 20px #333;
